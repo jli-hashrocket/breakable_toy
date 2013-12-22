@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Activity do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:names) { ["weightlifting","aerobics","yoga","biking","hiking"] }
+
+  it { should have_valid(:name).when(*names) }
+  it { should_not have_valid(:name).when(nil) }
+
 end
