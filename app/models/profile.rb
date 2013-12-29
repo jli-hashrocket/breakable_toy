@@ -5,4 +5,8 @@ class Profile < ActiveRecord::Base
   validates :password,  :confirmation => true, :presence => true
   validates :email,     :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }, :presence => true
 
+  has_many :profile_activities,
+    inverse_of: :profile
+  has_many :activities,
+    through: :profile_activities
 end

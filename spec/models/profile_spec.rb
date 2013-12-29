@@ -25,5 +25,8 @@ describe Profile do
     it { should_not have_valid(:password).when(nil) }
   end
 
+  it { should have_many(:profile_activities) }
+  it { should have_many(:activities).through(:profile_activities) }
+
 
 end
